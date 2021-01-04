@@ -25,18 +25,18 @@ app.use(methodOverride('_method'))
 /////////////////ROUTES////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-app.get('/items', (req,res) => {
-  Item.find({},(error, allItems) => {
-    res.render(
-      'index.ejs',
-      {
-        items: allItems
-      }
-    )
-
-  })
-
-})
+// app.get('/items', (req,res) => {
+//   Item.find({},(error, allItems) => {
+//     res.render(
+//       'index.ejs',
+//       {
+//         items: allItems
+//       }
+//     )
+//
+//   })
+//
+// })
 
 app.get('/items/new', (req, res) => {
   res.render('new.ejs')
