@@ -6,7 +6,6 @@ const express = require('express')
 const methodOverride = require('method-override')
 const mongoose = require('mongoose')
 const app = express()
-const Item = require('./models/items.js')
 const db = mongoose.connection
 require('dotenv').config()
 const PORT = process.env.PORT || 3003
@@ -23,14 +22,8 @@ app.use(methodOverride('_method'))
 ////////////////////////////////////////////////////////////////////////////////
 /////////////////ROUTES////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-app.get('/items/new', (req, res) => {
-  res.render('new.ejs')
-})
-app.post('/items',(req,res) => {
-  // Item.create(req.body,(error,createdItem) => {
-  //
-  // })
-res.send(req.body)
+app.get('/', (req, res) => {
+  res.send('Hello World')
 })
 ////////////////////////////////////////////////////////////////////////////////
 /////////////////CONNECTION/////////////////////////////////////////////////////
