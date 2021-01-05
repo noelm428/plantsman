@@ -25,7 +25,10 @@ app.use(methodOverride('_method'))
 /////////////////ROUTES////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
+app.get('/'(req,res) => {
+  res.send("hello wolrd")
 
+})
 /////////////////EDIT////////////////////////////////////////////////////////
 app.get('/items/:id/edit',(req,res) => {
   Item.findById(req.params.id,(error,foundItem) => {
@@ -44,7 +47,7 @@ app.put('/items/:id',(req,res) => {
   Item.findByIdAndUpdate(req.params.id,req.body,{new:true},(error,updatedModel) => {
     res.redirect('/items')
   })
-  
+
 
 })
 
