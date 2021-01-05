@@ -8,6 +8,7 @@ const app = express()
 const Item = require('./models/items.js')
 const db = mongoose.connection
 require('dotenv').config()
+
 const PORT = process.env.PORT || 3003
 const MONGODB_URI = process.env.MONGODB_URI
 
@@ -23,6 +24,62 @@ app.use(methodOverride('_method'))
 ////////////////////////////////////////////////////////////////////////////////
 /////////////////ROUTES////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////EDIT////////////////////////////////////////////////////////
+app.get('/items/:id/edit',(req,res) => {
+  Item.findById(req.params.id,(error,foundItem) => {
+    res.render(
+       'edit.ejs',
+       {
+         item:foundItem
+       }
+    )
+  })
+
+})
+/////////////////PUT////////////////////////////////////////////////////////////
+
+app.put('/items/:id',(req,res) => {
+  Item.findByIdAndUpdate(req.params.id,req.body,{new:true},(error,updatedModel) => {
+    res.redirect('/items')
+  })
+  
+
+})
+
+
+/////////////////SEED////////////////////////////////////////////////////////
+app.get('/items/seed',(req,res) => {
+  Item.create(
+    {
+      name: 'Sword',
+      info: 'you carried prior to washing ashore on the island',
+      img: String,
+      qty: 1
+    },
+    {
+      name: 'Boomerang',
+      info: 'Throw it anywhere you want. It always comes back',
+      img: String,
+      qty: 1
+    },
+    {
+      name: 'Power Bracelet',
+      info: ' A mysterious bracelet that surges with power.',
+      img: String,
+      qty: 1
+    },
+    {
+      name: 'Pegasus Boots',
+      info: 'Put on a burst of speed with L. You can jump further too!',
+      img: String,
+      qty: 1
+     }
+  )
+
+})
+
 
 /////////////////INDEX////////////////////////////////////////////////////////
 
@@ -50,6 +107,9 @@ app.post('/items',(req,res) => {
      res.redirect('/items')
    })
 })
+
+
+
 /////////////////SHOW////////////////////////////////////////////////////////
 app.get('/items/:id',(req,res) => {
   Item.findById(req.params.id,(error, foundItem) => {
@@ -63,6 +123,18 @@ app.get('/items/:id',(req,res) => {
   })
 
 })
+
+/////////////////DELETE////////////////////////////////////////////////////////
+
+app.delete('/items/:id',(req,res) => {
+  Item.findByIdAndRemove(req.params.id,(error,data) => {
+    res.redirect('/items');
+  })
+
+
+})
+
+
 ////////////////////////////////////////////////////////////////////////////////
 /////////////////CONNECTION/////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////

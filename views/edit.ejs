@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Edit Item page</h1>
+    <form action="/items/<%=item.id%>?_method=PUT" method="POST">
+      Name:<input type="text" name="name" value="<%=item.name%>"><br/>
+      Info:<input type="text" name="info" value="<%=item.info%>"><br/>
+      Img:<input type="text" name="img" value="<%=item.img%>"><br/>
+      Qty:<input type="text" name="qty" value="<%=item.qty%>"><br/>
+     <input type="submit"  value="submit Changes">
+    </form>
+
+  </body>
+</html>
