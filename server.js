@@ -1,7 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 /////////////////CONFIG/////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-
 const express = require('express')
 const methodOverride = require('method-override')
 const mongoose = require('mongoose')
@@ -25,26 +24,42 @@ app.use(methodOverride('_method'))
 /////////////////ROUTES////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-app.get('/items', (req,res) => {
-  Item.find({},(error, allItems) => {
-    res.render(
-      'index.ejs',
-      {
-        items: allItems
-      }
-    )
+/////////////////INDEX////////////////////////////////////////////////////////
 
-  })
+app.get('/items',(req, res) => {
+   Item.find({}, (error, allItems) => {
+       res.render(
+         'index.ejs',
+         {
+           items: allItems
+         }
+
+       )
+   })
 
 })
 
+/////////////////NEW ITEM////////////////////////////////////////////////////////
 app.get('/items/new', (req, res) => {
   res.render('new.ejs')
 })
+/////////////////CREATE////////////////////////////////////////////////////////
 
 app.post('/items',(req,res) => {
-  Item.create(req.body,(error, createdItem) => {
-    res.send(createdItem)
+   Item.create(req.body, (error, createdItem) => {
+     res.redirect('/items')
+   })
+})
+/////////////////SHOW////////////////////////////////////////////////////////
+app.get('/items/:id',(req,res) => {
+  Item.findById(req.params.id,(error, foundItem) => {
+    res.render(
+         'show.ejs',
+         {
+           item:foundItem
+         }
+    )
+
   })
 
 })

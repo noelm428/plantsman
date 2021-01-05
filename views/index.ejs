@@ -6,6 +6,19 @@
   </head>
   <body>
     <h1>Item Index</h1>
+    <ul>
+      <% for(let i = 0; i < items.length; i++){%>
+        <li>
+          <a href="/items/<%=items[i]._id%>">
+            <%=items[i].name;%>
+          </a>
 
+        </li>
+      <%}%>
+
+    </ul>
+    <nav>
+       <a href="/items/new"> Create a New Item</a>
+    </nav>
   </body>
 </html>
