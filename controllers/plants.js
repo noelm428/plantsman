@@ -1,21 +1,21 @@
 const express = require('express')
 const router = express.Router()
-const Item = require('../models/items.js')
+const Plant = require('../models/plants.js')
 ////////////////////////////////////////////////////////////////////////////////
 /////////////////ROUTES////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
 router.get('/',(req,res) => {
-  res.redirect("/items")
+  res.redirect("/plants")
 
 })
 /////////////////EDIT////////////////////////////////////////////////////////
-router.get('/items/:id/edit',(req,res) => {
-  Item.findById(req.params.id,(error,foundItem) => {
+router.get('/plants/:id/edit',(req,res) => {
+  Plant.findById(req.params.id,(error,foundPlant) => {
     res.render(
        'edit.ejs',
        {
-         item:foundItem
+         plant:foundPlant
        }
     )
   })
@@ -23,9 +23,9 @@ router.get('/items/:id/edit',(req,res) => {
 })
 /////////////////PUT////////////////////////////////////////////////////////////
 
-router.put('/items/:id',(req,res) => {
-  Item.findByIdAndUpdate(req.params.id,req.body,{new:true},(error,updatedModel) => {
-    res.redirect('/items')
+router.put('/plants/:id',(req,res) => {
+  Plant.findByIdAndUpdate(req.params.id,req.body,{new:true},(error,updatedModel) => {
+    res.redirect('/plants')
   })
 
 
@@ -33,8 +33,8 @@ router.put('/items/:id',(req,res) => {
 
 
 /////////////////SEED////////////////////////////////////////////////////////
-router.get('/items/seed',(req,res) => {
-  Item.create(
+router.get('/plants/seed',(req,res) => {
+  Plant.create(
     {
       name: 'Sword',
       info: 'you carried prior to washing ashore on the island',
@@ -66,12 +66,12 @@ router.get('/items/seed',(req,res) => {
 
 /////////////////INDEX////////////////////////////////////////////////////////
 
-router.get('/items',(req, res) => {
-   Item.find({}, (error, allItems) => {
+router.get('/plants',(req, res) => {
+   Plant.find({}, (error, allPlants) => {
        res.render(
          'index.ejs',
          {
-           items: allItems
+           plants: allPlants
          }
 
        )
@@ -79,27 +79,27 @@ router.get('/items',(req, res) => {
 
 })
 
-/////////////////NEW ITEM////////////////////////////////////////////////////////
-router.get('/items/new', (req, res) => {
+/////////////////NEW Plant////////////////////////////////////////////////////////
+router.get('/plants/new', (req, res) => {
   res.render('new.ejs')
 })
 /////////////////CREATE////////////////////////////////////////////////////////
 
-router.post('/items',(req,res) => {
-   Item.create(req.body, (error, createdItem) => {
-     res.redirect('/items')
+router.post('/plants',(req,res) => {
+   Plant.create(req.body, (error, createdPlant) => {
+     res.redirect('/plants')
    })
 })
 
 
 
 /////////////////SHOW////////////////////////////////////////////////////////
-router.get('/items/:id',(req,res) => {
-  Item.findById(req.params.id,(error, foundItem) => {
+router.get('/plants/:id',(req,res) => {
+  Plant.findById(req.params.id,(error, foundPlant) => {
     res.render(
          'show.ejs',
          {
-           item:foundItem
+           plant:foundPlant
          }
     )
 
@@ -109,9 +109,9 @@ router.get('/items/:id',(req,res) => {
 
 /////////////////DELETE////////////////////////////////////////////////////////
 
-router.delete('/items/:id',(req,res) => {
-  Item.findByIdAndRemove(req.params.id,(error,data) => {
-    res.redirect('/items');
+router.delete('/plants/:id',(req,res) => {
+  Plant.findByIdAndRemove(req.params.id,(error,data) => {
+    res.redirect('/plants');
   })
 
 

@@ -6,7 +6,7 @@ const methodOverride = require('method-override')
 const mongoose = require('mongoose')
 const app = express()
 
-const itemsController = require('./controllers/items.js')
+const plantsController = require('./controllers/plants.js')
 const db = mongoose.connection
 require('dotenv').config()
 
@@ -21,7 +21,7 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 app.use(methodOverride('_method'))
-app.use(itemsController)
+app.use(plantsController)
 
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -5,24 +5,24 @@
     <title></title>
   </head>
   <body>
-    <h1>Item Index</h1>
+    <h1>Plant Index</h1>
     <ul>
-      <% for(let i = 0; i < items.length; i++){%>
+      <% for(let i = 0; i < plants.length; i++){%>
         <li>
-          <a href="/items/<%=items[i]._id%>">
-            <%=items[i].name;%>
+          <a href="/plants/<%=plants[i]._id%>">
+            <%=plants[i].name;%>
           </a>
-          <form action="/items/<%=items[i]._id%>?_method=DELETE" method="POST">
+          <form action="/plants/<%=plants[i]._id%>?_method=DELETE" method="POST">
             <input type="submit"  value="DELETE">
           </form>
-          <a href="/items/<%=items[i]._id%>/edit">Edit</a>
+          <a href="/plants/<%=plants[i]._id%>/edit">Edit</a>
 
         </li>
       <%}%>
 
     </ul>
     <nav>
-       <a href="/items/new"> Create a New Item</a>
+       <a href="/plants/new"> Create a New Plant</a>
     </nav>
   </body>
 </html>
