@@ -5,9 +5,13 @@
     <title></title>
   </head>
   <body>
-    <h1>Plant show page</h1>
-      The <%=plant.name;%> <%=plant.info%>,
-       You have <%=plant.qty%> ready for use.
+    <h1><%=plant.name;%></h1>
+    <ul>
+      <li><img src="<%=plant.img%>" alt="img"></li>
+      <li><%=plant.info%></li>
+      <li><%=plant.care%></li>
+    </ul>
+<h2>You have <%=plant.qty%> in your collection</h2>
 
   </body>
 </html>

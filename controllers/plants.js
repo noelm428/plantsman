@@ -36,27 +36,31 @@ router.put('/plants/:id',(req,res) => {
 router.get('/plants/seed',(req,res) => {
   Plant.create(
     {
-      name: 'Sword',
-      info: 'you carried prior to washing ashore on the island',
-      img: String,
+      name: 'Monstera Deliciosa',
+      info: 'It is the very best houseplant. It can survive your neglect and laziness!',
+      care: 'Thrives in bright to medium indirect light.Water every 1-2 weeks, allowing soil to dry out between waterings. Expect to water more often in brighter light and less often in lower light. ',
+      img: 'https://image.freepik.com/free-vector/monstera-deliciosa-also-known-as-swiss-cheese-plant-hand-draw-sketch-vector_37445-754.jpg',
       qty: 1
     },
     {
-      name: 'Boomerang',
-      info: 'Throw it anywhere you want. It always comes back',
-      img: String,
+      name: 'Yucca Palm',
+      info: 'Many recognize Yucca Palm for its ease of care. It is a low-maintenance houseplant.',
+      care: 'It likes bright, indirect sunlight best. However, this hardy plant also tolerates low light conditions.Water the palm plant only when the top layer of the soil dries. Reduce watering in colder months.',
+      img: 'https://static.vecteezy.com/system/resources/previews/000/143/562/original/vector-free-yucca-plant-collections.jpg',
       qty: 1
     },
     {
-      name: 'Power Bracelet',
-      info: ' A mysterious bracelet that surges with power.',
-      img: String,
+      name: 'Sansevieria trifasciata aka "Snake plant"',
+      info: ' is commonly called "mother-in-law\'s tongue", "Saint George\'s sword" or "snake plant", because of the shape and sharp margins of its leaves. It is also known as the "viper\'s bowstring hemp", because it is one of the sources for plant fibers used to make bowstrings.',
+      care: 'Water when the soil dries out. The best way to tell when your plant needs watering is to touch the soil every week. When the first inch of the soil feels dry, it\'s time to water.',
+      img: 'https://i.etsystatic.com/17629781/r/il/e3fd2a/2466011963/il_794xN.2466011963_cfnj.jpg',
       qty: 1
     },
     {
       name: 'Pegasus Boots',
       info: 'Put on a burst of speed with L. You can jump further too!',
       img: String,
+      care: String,
       qty: 1
      }
   )
