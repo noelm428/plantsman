@@ -66,10 +66,10 @@ router.get('/plants/seed', (req, res) => {
     img: 'https://i.etsystatic.com/17629781/r/il/e3fd2a/2466011963/il_794xN.2466011963_cfnj.jpg',
     qty: 1
   }, {
-    name: 'Pegasus Boots',
-    info: 'Put on a burst of speed with L. You can jump further too!',
-    img: String,
-    care: String,
+    name: 'Cactus',
+    info: 'spikey yet fun',
+    img: 'https://render.fineartamerica.com/images/rendered/default/print/6/8/break/images/artworkimages/medium/1/saguaro-cactus-shanon-rifenbery.jpg',
+    care: 'low maintenance water once a month, give it plenty of sun',
     qty: 1
   })
 
@@ -79,10 +79,10 @@ router.get('/plants/seed', (req, res) => {
 /////////////////INDEX////////////////////////////////////////////////////////
 
 router.get('/plants', (req, res) => {
-  Plant.find({}, (error, allPlants) => {
+  Plant.find({}, (error, allPlant) => {
     res.render(
       'index.ejs', {
-        plants: allPlants,
+        plant: allPlant,
         currentUser: req.session.currentUser
       }
 

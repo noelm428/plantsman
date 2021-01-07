@@ -6,13 +6,25 @@
     <title></title>
   </head>
   <body>
-    <h1><%=plant.name;%></h1>
-    <ul>
-      <li><img src="<%=plant.img%>" alt="img"></li>
-      <li><%=plant.info%></li>
-      <li><%=plant.care%></li>
-    </ul>
-<h2>You have <%=plant.qty%> in your collection</h2>
+    <nav>
+
+    </nav>
+    <div class="">
+      <h1><%=plant.name;%></h1>
+      <ul>
+
+        <li><img src="<%=plant.img%>" alt="img"></li>
+        <li><%=plant.info%></li>
+        <li><%=plant.care%></li>
+      </ul>
+      <form action="/plants/<%=plant._id%>?_method=DELETE" method="POST">
+        <input type="submit"  value="DELETE">
+      </form>
+      <a href="/plants/<%=plant._id%>/edit">Edit</a>
+  <h2>You have <%=plant.qty%> in your collection</h2>
+
+    </div>
+
 
   </body>
 </html>

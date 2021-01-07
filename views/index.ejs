@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+
       <%- include("./partials/head.ejs")%>
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
       <%- include("./partials/nav.ejs")%>
-    <h1>plant index</h1>
-    <ul>
-      <% for(let i = 0; i < plants.length; i++){%>
-        <li>
-          <a href="/plants/<%=plants[i]._id%>">
-            <%=plants[i].name;%>
-          </a>
-          <form action="/plants/<%=plants[i]._id%>?_method=DELETE" method="POST">
-            <input type="submit"  value="DELETE">
-          </form>
-          <a href="/plants/<%=plants[i]._id%>/edit">Edit</a>
-        </li>
-      <%}%>
-  <li><a href="/plants/new">Add a new Plant</a></li>
-    </ul>
+    <h1>Plant Collection</h1>
+  <div class="container">
+    <div class="plants">
+      <% plant.forEach( plant => { %>
+         <div class="card">
+           <h2> <%= plant.name %></h2>
+           <a href="/plants/<%=plant.id%>">
+             <img src="<%= plant.img %>" alt=" <%= plant.name %>" /></a>
+             <h3><%=plant.info%></h3>
+
+         </div>
+       <% }) %>
+    </div>
+  </div>
+  <a href="/plants/new">Add a new Plant</a><br>
+<a href="/plants/seed">seed</a>
+
 
   </body>
 </html>

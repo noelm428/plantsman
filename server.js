@@ -21,7 +21,6 @@ app.use(express.json())
 app.use(methodOverride('_method'))
 app.use(  session({
     secret: process.env.SECRET,
-    
     resave: false,
     saveUninitialized: false,
   })
