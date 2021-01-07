@@ -15,7 +15,7 @@ router.get('/plants/:id/edit', (req, res) => {
     res.render(
       'edit.ejs', {
         plant: foundPlant,
-        // currentUser: req.session.currentUser
+        currentUser: req.session.currentUser
       }
     )
   })
@@ -72,7 +72,7 @@ router.get('/plants', (req, res) => {
     res.render(
       'index.ejs', {
         plants: allPlants,
-        // currentUser: req.session.currentUser
+        currentUser: req.session.currentUser
       }
 
     )
@@ -84,7 +84,7 @@ router.get('/plants', (req, res) => {
 
 router.get('/plants/new', (req, res) => {
   res.render('new.ejs', {
-    // currentUser: req.session.currentUser
+    currentUser: req.session.currentUser
   })
 })
 
@@ -100,20 +100,20 @@ router.post('/plants', (req, res) => {
 
 /////////////////SHOW////////////////////////////////////////////////////////
 router.get('/plants/:id', (req, res) => {
-  // if (req.session.currentUser) {
+  if (req.session.currentUser) {
     Plant.findById(req.params.id, (error, foundPlant) => {
       res.render(
         'show.ejs', {
           plant: foundPlant,
-          // currentUser: req.session.currentUser
+          currentUser: req.session.currentUser
         }
       )
     })
 
-  // } else{
-  //   res.redirect('/sessions/new')
-  //
-  // }
+  } else{
+    res.redirect('/sessions/new')
+
+  }
 
 
 })
