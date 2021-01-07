@@ -1,9 +1,20 @@
+/////////////////CONFIG////////////////////////////////////////////////////////
+
 const express = require('express')
 const router = express.Router()
 const Plant = require('../models/plants.js')
-////////////////////////////////////////////////////////////////////////////////
+
+const isAuth = (req,res,next) => {
+  if(req.session.currentUser){
+    return next()
+  }else{
+    res.redirect('/sessions/new')
+  }
+
+}
+
 /////////////////ROUTES////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
+
 
 router.get('/', (req, res) => {
   res.redirect("/plants")
@@ -82,14 +93,10 @@ router.get('/plants', (req, res) => {
 
 /////////////////NEW Plant////////////////////////////////////////////////////////
 
-router.get('/plants/new', (req, res) => {
-  if (req.session.currentUser){
-    res.render('new.ejs', {
+router.get('/plants/new',isAuth, (req, res) => {
+   res.render('new.ejs', {
       currentUser: req.session.currentUser
     })
-  }else{
-    res.redirect('/sessions/new')
-  }
 
 })
 
@@ -104,9 +111,8 @@ router.post('/plants', (req, res) => {
 
 
 /////////////////SHOW////////////////////////////////////////////////////////
-router.get('/plants/:id', (req, res) => {
-  if (req.session.currentUser) {
-    Plant.findById(req.params.id, (error, foundPlant) => {
+router.get('/plants/:id',isAuth, (req, res) => {
+  Plant.findById(req.params.id, (error, foundPlant) => {
       res.render(
         'show.ejs', {
           plant: foundPlant,
@@ -114,18 +120,11 @@ router.get('/plants/:id', (req, res) => {
         }
       )
     })
-
-  } else{
-    res.redirect('/sessions/new')
-
-  }
-
-
 })
 
 /////////////////DELETE////////////////////////////////////////////////////////
 
-router.delete('/plants/:id', (req, res) => {
+router.delete('/plants/:id',isAuth, (req, res) => {
   Plant.findByIdAndRemove(req.params.id, (error, data) => {
     res.redirect('/plants');
   })
