@@ -83,9 +83,14 @@ router.get('/plants', (req, res) => {
 /////////////////NEW Plant////////////////////////////////////////////////////////
 
 router.get('/plants/new', (req, res) => {
-  res.render('new.ejs', {
-    currentUser: req.session.currentUser
-  })
+  if (req.session.currentUser){
+    res.render('new.ejs', {
+      currentUser: req.session.currentUser
+    })
+  }else{
+    res.redirect('/sessions/new')
+  }
+
 })
 
 /////////////////CREATE////////////////////////////////////////////////////////
