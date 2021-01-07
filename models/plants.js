@@ -10,5 +10,5 @@ const plantSchema = new mongoose.Schema({
 
 });
 
-const Plant = mongoose.model('Inventory', plantSchema);
+const Plant = mongoose.model('green', plantSchema);
 module.exports =Plant;
