@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+      <%- include("./partials/head.ejs")%>
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
+      <%- include("./partials/nav.ejs")%>
     <h1>Plant Index</h1>
     <ul>
       <% for(let i = 0; i < plants.length; i++){%>
@@ -16,13 +18,10 @@
             <input type="submit"  value="DELETE">
           </form>
           <a href="/plants/<%=plants[i]._id%>/edit">Edit</a>
-
         </li>
       <%}%>
 
     </ul>
-    <nav>
-       <a href="/plants/new"> Create a New Plant</a>
-    </nav>
+
   </body>
 </html>
