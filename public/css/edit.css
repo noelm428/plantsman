@@ -1,0 +1,23 @@
+.container{
+  /* display: flex;
+  background-color: red;
+  flex-wrap: wrap;
+  justify-content: center; */
+
+}
+.card{
+  /* margin: 10px;
+  padding:20px;
+  font-size: 30px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; */
+
+}
+
+.img{
+  /* height:300px;
+  width: auto;
+  border-radius: 2rem;
+  border: 1px solid green; */
+}

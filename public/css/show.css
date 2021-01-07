@@ -1,0 +1,25 @@
+.container{
+  display: flex;
+  /* background-color: orange; */
+  flex-wrap: wrap;
+  justify-content: center; */
+
+}
+.card{
+   margin: 10px;
+  padding:20px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; */
+
+}
+
+ .img{
+  height:650px;
+  width: auto;
+  border-radius: 2rem;
+  border: 1px solid green; */
+}
+ li{
+   list-style: none;
+ }

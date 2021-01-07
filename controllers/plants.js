@@ -61,7 +61,7 @@ router.get('/plants/seed', (req, res) => {
     qty: 1
   }, {
     name: 'Sansevieria trifasciata aka "Snake plant"',
-    info: ' is commonly called "mother-in-law\'s tongue", "Saint George\'s sword" or "snake plant", because of the shape and sharp margins of its leaves. It is also known as the "viper\'s bowstring hemp", because it is one of the sources for plant fibers used to make bowstrings.',
+    info: ' is commonly called "mother-in-law\'s tongue',
     care: 'Water when the soil dries out. The best way to tell when your plant needs watering is to touch the soil every week. When the first inch of the soil feels dry, it\'s time to water.',
     img: 'https://i.etsystatic.com/17629781/r/il/e3fd2a/2466011963/il_794xN.2466011963_cfnj.jpg',
     qty: 1
