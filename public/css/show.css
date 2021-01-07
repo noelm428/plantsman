@@ -2,7 +2,8 @@
   display: flex;
   /* background-color: orange; */
   flex-wrap: wrap;
-  justify-content: center; */
+  justify-content: center; 
+  background-color: #eddfd1;
 
 }
 .card{
@@ -18,7 +19,7 @@
   height:650px;
   width: auto;
   border-radius: 2rem;
-  border: 1px solid green; */
+  border: 1px solid green;
 }
  li{
    list-style: none;

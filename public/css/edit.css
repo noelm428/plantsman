@@ -1,23 +1,29 @@
 .container{
-  /* display: flex;
-  background-color: red;
-  flex-wrap: wrap;
-  justify-content: center; */
+display: flex;
 
+  flex-wrap: wrap;
+  justify-content: center;
+  background-image: url(https://s.yimg.com/uu/api/res/1.2/e1hC9Pk09IN8FYoSvKy.WA--~B/aD0yODA7dz01MDA7YXBwaWQ9eXRhY2h5b24-/http://media.zenfs.com/en/homerun/feed_manager_auto_publish_494/5d4d7d0eb730fef1245190feebfd3456);
 }
 .card{
-  /* margin: 10px;
+ margin: 10px;
   padding:20px;
   font-size: 30px;
   justify-content: center;
   align-items: center;
-  flex-direction: column; */
+  flex-direction: column;
+
+
 
 }
 
 .img{
-  /* height:300px;
+height:300px;
   width: auto;
   border-radius: 2rem;
-  border: 1px solid green; */
+  border: 1px solid green;
+}
+
+li{
+  list-style: none;
 }

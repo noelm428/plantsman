@@ -60,12 +60,19 @@ router.get('/plants/seed', (req, res) => {
     img: 'https://static.vecteezy.com/system/resources/previews/000/143/562/original/vector-free-yucca-plant-collections.jpg',
     qty: 1
   }, {
-    name: 'Sansevieria trifasciata aka "Snake plant"',
+    name:  "Snake plant",
     info: ' is commonly called "mother-in-law\'s tongue',
     care: 'Water when the soil dries out. The best way to tell when your plant needs watering is to touch the soil every week. When the first inch of the soil feels dry, it\'s time to water.',
     img: 'https://i.etsystatic.com/17629781/r/il/e3fd2a/2466011963/il_794xN.2466011963_cfnj.jpg',
     qty: 1
-  }, {
+  },
+  {
+    name: 'Audrey II',
+    info: ' Audrey II is a very cruel, greedy, uncaring, avaricious, manipulative, heartless.',
+    care: 'FeedMeSeymour',
+    img: 'https://theatre.niagara.edu/assets/Productions/_resampled/ScaleWidthWyI4MDAiXQ/LSoH-5x7-web.jpg',
+    qty: 7
+  },{
     name: 'Cactus',
     info: 'spikey yet fun',
     img: 'https://render.fineartamerica.com/images/rendered/default/print/6/8/break/images/artworkimages/medium/1/saguaro-cactus-shanon-rifenbery.jpg',
